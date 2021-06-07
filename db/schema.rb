@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_06_025137) do
+ActiveRecord::Schema.define(version: 2021_06_07_025330) do
+
+  create_table "characters", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.date "year"
+    t.float "weigh"
+    t.text "story"
+    t.string "picture"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "movies_id", null: false
+    t.index ["movies_id"], name: "index_characters_on_movies_id"
+  end
+
+  create_table "movies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title"
+    t.integer "gender"
+    t.integer "qualification"
+    t.string "picture"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "character_id", null: false
+    t.index ["character_id"], name: "index_movies_on_character_id"
+  end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "username"
@@ -19,4 +42,6 @@ ActiveRecord::Schema.define(version: 2021_06_06_025137) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "characters", "movies", column: "movies_id"
+  add_foreign_key "movies", "characters"
 end

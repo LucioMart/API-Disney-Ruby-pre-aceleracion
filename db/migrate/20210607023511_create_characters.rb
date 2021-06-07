@@ -6,7 +6,6 @@ class CreateCharacters < ActiveRecord::Migration[6.1]
       t.float :weigh
       t.text :story
       t.string :picture
-      t.movie :references
 
       t.timestamps
     end
