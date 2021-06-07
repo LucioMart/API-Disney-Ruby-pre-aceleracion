@@ -1,6 +1,6 @@
 class Character < ApplicationRecord
 
-    has_and_belongs_to_many :movie
+    #has_and_belongs_to_many :movie
 
     validates :name, presence: true
     validates :year, presence: true
