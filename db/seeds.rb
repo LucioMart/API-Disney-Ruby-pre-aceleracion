@@ -6,7 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-100.times do |i|
-    movie = Movie.create(title: "Movie #{i}", gender: i,qualification: i,picture: "http://lorempixel.com/320/460/")
-    Character.create( name: "Character #{i}", year: "#{i}-#{i}-1990",weigh: i, story: "Story #{i}", picture: "http://lorempixel.com/320/460/", movie_ids: [movie.id])
-end
+
+   
+    anio = (1920..2021)
+    peso = (1.40..1.90)
+    100.times do |i| 
+        character = Character.create(name: "Personaje Disney #{i}", year: "#{rand(32)}-#{rand(13)}-#{rand(anio)}", weigh: rand(peso), story: "Historia #{i}", picture: "http://lorempixel.com/320/460/")
+        Movie.create(title: "Pelicula #{i}", gender: "#{rand(7)}", qualification: "#{rand(5)}", picture: "http://lorempixel.com/320/460/", character_ids: [character.id])
+    end
