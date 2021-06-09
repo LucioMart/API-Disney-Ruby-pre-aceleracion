@@ -1,24 +1,27 @@
-# README
+#  API de personajes y peliculas de disney para la Pre Aceleraciòn Alkyme 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Caracteristicas
 
-Things you may want to cover:
+Contenido:
+- Esquema
+  - tabla Users
+  - tabla Character
+  - tabla Movies
+  - tabla Genre
+- Endpoints
+  - visualizaciòn de todas peliculas, personajes y generos de peliculas
+  - detalles de pelicula, personaje y genero
+  - actualizaciòn de peliculas, personajes y genero
+  - creaciòn de pelicula, personaje y genero
 
-* Ruby version
 
-* System dependencies
+## Còmo utilizar
 
-* Configuration
+1. Clonar el repo
+2. Instalar PostgreSQL 
+3. instalar Ruby y ruby on rails
+4. correr bundle install
+5. correr rails db:create && db:migrate
+6. correr rails db:seed 
+7. correr rails s
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

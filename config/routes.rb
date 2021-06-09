@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   
     namespace 'v1' do 
     
-      resources :users
-      resources :characters
-      resources :movies
-      resources :genders
+      resource :users, only: [:create]
+      post "/login", to: "user#login"
+      get "/auto_login", to: "users#auto_login"
+      resource :characters
+      resource :movies
+      resource :genders
 
     end
 

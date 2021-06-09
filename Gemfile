@@ -5,7 +5,7 @@ ruby '3.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
-# Use postgresql as the database for Active Record
+# La gema para conectar postgresql con Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
@@ -13,9 +13,10 @@ gem 'puma', '~> 5.0'
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
+# Esta gema nos permite habilita "has_secure_password" en Active Record
  gem 'bcrypt', '~> 3.1.7'
-
+#La gema permite utilizar tokens JWT en los encabezados de las solicitudes
+#para saber que la solicitud está autorizada para acceder a ciertos datos.
  gem 'jwt'
 
  gem 'kaminari'
@@ -26,7 +27,7 @@ gem 'puma', '~> 5.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+# Usamos Rack CORS para habiliar Cross-Origin Resource Sharing (CORS)
  gem 'rack-cors'
 
 group :development, :test do
