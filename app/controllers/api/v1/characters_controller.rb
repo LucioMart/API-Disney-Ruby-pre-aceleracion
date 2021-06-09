@@ -3,10 +3,10 @@ module Api
         #El nombre del controlador debe ser en plural y la clase se debe llamar igual que el controlador.
         class CharactersController < ApplicationController
 
-            before_action :authenticate_user!, except: [:index, :show]
+            #before_action :login 
             
             def index
-                personajes = Character.order('created_at');
+                personajes = Character.order('created_at').page(params[:page]).per(25);
                 render json: {
                     status: 'EXITOSO',
                     message: 'Personajes cargados',

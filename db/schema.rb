@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_123003) do
+ActiveRecord::Schema.define(version: 2021_06_09_021954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,9 +32,23 @@ ActiveRecord::Schema.define(version: 2021_06_07_123003) do
     t.index ["movie_id", "character_id"], name: "index_characters_movies_on_movie_id_and_character_id"
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "genres_movies", id: false, force: :cascade do |t|
+    t.bigint "genre_id", null: false
+    t.bigint "movie_id", null: false
+    t.index ["genre_id", "movie_id"], name: "index_genres_movies_on_genre_id_and_movie_id"
+    t.index ["movie_id", "genre_id"], name: "index_genres_movies_on_movie_id_and_genre_id"
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string "title"
-    t.integer "gender"
+    t.date "year"
     t.integer "qualification"
     t.string "picture"
     t.datetime "created_at", precision: 6, null: false
@@ -42,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_123003) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
+    t.string "email"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

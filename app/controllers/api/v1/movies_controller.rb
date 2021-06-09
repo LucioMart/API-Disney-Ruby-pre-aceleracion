@@ -3,10 +3,10 @@ module Api
         #El nombre del controlador debe ser en plural y la clase se debe llamar igual que el controlador.
         class MoviesController < ApplicationController
 
-            before_action :authenticate_user!, except: [:index, :show]
+            before_action :login, only: [:index, :show]
             
             def index
-                peliculas = Movie.order('created_at');
+                peliculas = Movie.order('created_at').page(params[:page]).per(25);
                 render json: {
                     status: 'EXITOSO',
                     message: 'Peliculas cargadas',
